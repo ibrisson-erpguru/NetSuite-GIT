@@ -54,6 +54,9 @@ function setWeightUnitConversionRate(){
         if (results != null && results != '' && results.length == 1) {
             nlapiSetFieldValue('custbody_weightunitconversion', results[0].getValue('conversionrate'));
             nlapiLogExecution('DEBU', 'TEST', 'TEST');
+            nlapiLoadRecord('salesorder', 123, null);
+            nlapiSubmitRecord(test, null, null);
+            
         }
     }    
 }
