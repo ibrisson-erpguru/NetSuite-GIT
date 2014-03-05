@@ -30,7 +30,7 @@
   * @param {Object} name, name of field being changed
   * @param {Object} linenum, subline number
   */ 
- function setWeightUnitConversionRate(type,name,linenum) {
+ function setWeightUnitConversionRates(type,name,linenum) {
 	if (name == 'custbody_weight_by'){
 		var weightUnit = nlapiGetFieldText('custbody_weight_by');
 		var searchFilters = [];
@@ -38,7 +38,7 @@
 		searchFilters.push(new nlobjSearchFilter('unitname', null, 'is', weightUnit));
 		var searchColumns = [];
 		searchColumns.push(new nlobjSearchColumn('conversionrate'));
-		var results = nlapiSearchRecord('unitstype', null, searchFilters, searchColumns);
+		var results = nlapiSearchRecord('unittype', null, searchFilters, searchColumns);
 		// Search should always return only one value, if not, just leave the conversion rate blank
 		if (results != null && results != '' && results.length == 1) {
 			nlapiSetFieldValue('custbody_weightunitconversion',results[0].getValue('conversionrate'));
