@@ -53,7 +53,7 @@ function setWeightUnitConversionRate(){
         // Search should always return only one value, if not, just leave the conversion rate blank
         if (results != null && results != '' && results.length == 1) {
             nlapiSetFieldValue('custbody_weightunitconversion', results[0].getValue('conversionrate'));
-            nlapiLogExecution('DEBU', 'TEST-TEST-TEST', 'TEST');
+            nlapiLogExecution('DEBU', 'TEST-TEST-TEST', 'TEST-TEST-TEST');
         }
     }    
 }
