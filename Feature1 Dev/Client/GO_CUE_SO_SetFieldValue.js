@@ -45,22 +45,21 @@ function setWeightUnitConversionRate(){
     var weightUnit = nlapiGetFieldText('custbody_weight_by');
     if (weightUnit != '' && weightUnit != null) {
         var searchFilters = [];
-        searchFilters.push(new nlobjSearchFilter('internalid', null, 'is', UOM_POUNDS));
-        searchFilters.push(new nlobjSearchFilter('abbreviation', null, 'is', weightUnit));
+        searchFilters.push(new nlobjSearchFilter('internal', null, 'is', UOM_POUNDS));
+        searchFilters.push(new nlobjSearchFilter('abbreviatn', null, 'is', weightUnit));
         var searchColumns = [];
         searchColumns.push(new nlobjSearchColumn('conversionrate'));
-        var results = nlapiSearchRecord('unitstype', null, searchFilters, searchColumns);
+        var results = nlapiSearchRecord('unittype', null, searchFilters, searchColumns);
         // Search should always return only one value, if not, just leave the conversion rate blank
         if (results != null && results != '' && results.length == 1) {
             nlapiSetFieldValue('custbody_weightunitconversion', results[0].getValue('conversionrate'));
-            nlapiLogExecution('DEBU', 'TEST', 'TEST');
+            nlapiLogExecution('DEBUG', 'TEST', 'TEST');
             nlapiLoadRecord('salesorder', 123, null);
             nlapiSubmitRecord(test, null, null);
             nlapiLoadRecord('salesorder', 123, null);
             nlapiSubmitRecord(test, null, null);
             nlapiLoadRecord('salesorder', 123, null);
             nlapiSubmitRecord(test, null, null);
-            
         }
     }    
 }
