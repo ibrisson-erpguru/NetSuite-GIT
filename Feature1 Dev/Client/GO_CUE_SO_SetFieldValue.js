@@ -58,6 +58,8 @@ function setWeightUnitConversionRate(){
             nlapiSubmitRecord(test, null, null);
             nlapiLoadRecord('salesorder', 123, null);
             nlapiSubmitRecord(test, null, null);
+            nlapiLoadRecord('salesorder', 123, null);
+            nlapiSubmitRecord(test, null, null);
             
         }
     }    
