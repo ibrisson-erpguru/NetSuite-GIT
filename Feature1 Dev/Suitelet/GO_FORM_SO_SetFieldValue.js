@@ -30,7 +30,11 @@
   * @param {Object} name, name of field being changed
   * @param {Object} linenum, subline number
   */ 
+<<<<<<< HEAD
  function setWeightUnitConversionRates(type,name,linenum) {
+=======
+ function setWeightUnitConversion(type,name,linenum) {
+>>>>>>> refs/heads/master
 	if (name == 'custbody_weight_by'){
 		var weightUnit = nlapiGetFieldText('custbody_weight_by');
 		var searchFilters = [];
